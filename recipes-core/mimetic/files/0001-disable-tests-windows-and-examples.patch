@@ -1,0 +1,24 @@
+From ae66a9d1263e8d1948758dfd955da1f544ba56e9 Mon Sep 17 00:00:00 2001
+From: Florian Boor <florian@kernelconcepts.de>
+Date: Mon, 22 Jul 2019 12:25:48 +0200
+Subject: [PATCH] disable tests, windows and examples
+
+---
+ Makefile.am | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/Makefile.am b/Makefile.am
+index 634bd4c..aa802c5 100644
+--- a/Makefile.am
++++ b/Makefile.am
+@@ -1,6 +1,6 @@
+ MAINTAINERCLEANFILES = Makefile Makefile.in config.cache
+ EXTRA_DIST=LICENSE m4
+-SUBDIRS = mimetic doc examples test win32
++SUBDIRS = mimetic doc
+ INCLUDES=-I$(top_srcdir)
+ ACLOCAL_AMFLAGS=-I m4
+ 
+-- 
+2.11.0
+

@@ -1,0 +1,3 @@
+# Parameters to pass to psplash
+PARAMS=" -a 0 --background /opt/vdo/vdo-bootsplash-6.pnm --progresscolor 999999"
+# --disable-bar --logo-x % --logo-y % --bar-x % --bar-y %

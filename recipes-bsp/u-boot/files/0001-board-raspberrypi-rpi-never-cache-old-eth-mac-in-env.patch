@@ -1,0 +1,54 @@
+From 044ace2d75c061ed7ede35f4560cd97e26c9a933 Mon Sep 17 00:00:00 2001
+From: Christian Hilberg <hilberg@kernelconcepts.de>
+Date: Mon, 18 Nov 2019 11:11:32 +0100
+Subject: [PATCH] board: raspberrypi: rpi: never cache old eth mac in env
+
+---
+ board/raspberrypi/rpi/rpi.c | 19 +++++++++++++------
+ 1 file changed, 13 insertions(+), 6 deletions(-)
+
+diff --git a/board/raspberrypi/rpi/rpi.c b/board/raspberrypi/rpi/rpi.c
+index 35f5939552..f0fee9b70a 100644
+--- a/board/raspberrypi/rpi/rpi.c
++++ b/board/raspberrypi/rpi/rpi.c
+@@ -324,13 +324,11 @@ static void set_usbethaddr(void)
+ {
+ 	ALLOC_CACHE_ALIGN_BUFFER(struct msg_get_mac_address, msg, 1);
+ 	int ret;
++	char *usbethaddr;
+ 
+ 	if (!model->has_onboard_eth)
+ 		return;
+ 
+-	if (env_get("usbethaddr"))
+-		return;
+-
+ 	BCM2835_MBOX_INIT_HDR(msg);
+ 	BCM2835_MBOX_INIT_TAG(&msg->get_mac_address, GET_MAC_ADDRESS);
+ 
+@@ -341,10 +339,19 @@ static void set_usbethaddr(void)
+ 		return;
+ 	}
+ 
+-	eth_env_set_enetaddr("usbethaddr", msg->get_mac_address.body.resp.mac);
++	usbethaddr = env_get("usbethaddr");
++	if (usbethaddr) {
++		if (strcmp(usbethaddr, msg->get_mac_address.body.resp.mac) == 0) {
++			return;
++		}
++	}
+ 
+-	if (!env_get("ethaddr"))
+-		env_set("ethaddr", env_get("usbethaddr"));
++	env_set("usbethaddr", NULL);
++	eth_env_set_enetaddr("usbethaddr", msg->get_mac_address.body.resp.mac);
++	env_set(".flags", "ethaddr");
++	env_set("ethaddr", NULL);
++	env_set("ethaddr", env_get("usbethaddr"));
++	env_set(".flags", NULL);
+ 
+ 	return;
+ }
+-- 
+2.20.1
+

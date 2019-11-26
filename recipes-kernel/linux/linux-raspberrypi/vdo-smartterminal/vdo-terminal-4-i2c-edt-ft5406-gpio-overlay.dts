@@ -1,0 +1,26 @@
+/dts-v1/;
+/plugin/;
+
+/ {
+	compatible = "brcm,bcm2708";
+
+	fragment@0 {
+		target = <&i2c_gpio>;
+		__overlay__ {
+			#address-cells = <1>;
+			#size-cells = <0>;
+			status = "okay";
+
+			polytouch: polytouch@38 {
+				compatible = "edt,edt-ft5x06";
+				reg = <0x38>;
+				status = "okay";
+				interrupt-parent = <&gpio>;
+				interrupts = <10 2>;
+				reset-gpios = <&gpio 11 1>;
+				touchscreen-size-x = <800>;
+				touchscreen-size-y = <480>;
+			};
+		};
+	};
+};

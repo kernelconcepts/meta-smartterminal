@@ -1,0 +1,7 @@
+fdt addr ${fdt_addr} && fdt get value bootargs_rpi /chosen bootargs
+setenv default_bootargs "setenv bootargs_pi ${bootargs_rpi} rootfstype=ext4"
+setexpr loadaddr_sel ${loadaddr} + 1000
+fatload mmc 0:1 ${loadaddr_sel} boot_selection.scr
+source ${loadaddr_sel}
+fatload mmc 0:1 ${kernel_addr_r} @@KERNEL_IMAGETYPE@@
+@@KERNEL_BOOTCMD@@ ${kernel_addr_r} - ${fdt_addr}

@@ -1,0 +1,1 @@
+SUBSYSTEM=="usb", ATTRS{idVendor}=="1eaf", ATTRS{idProduct}=="0107", RUN+="@BINDIR@/udev-cp210x-newid.sh 1eaf 0107"

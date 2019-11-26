@@ -1,0 +1,109 @@
+MACHINE ?= 'vdo-smartterminal'
+
+DISTRO ?= 'poky'
+DISTRO_FEATURES_remove = "wayland systemd 3g"
+DISTRO_FEATURES_append = "opengl x11 smbfs pam"
+
+PACKAGE_CLASSES ?= "package_ipk"
+
+USER_CLASSES ?= "buildstats image-mklibs"
+PATCHRESOLVE = "noop"
+
+SPLASH_${MACHINE} = "psplash-mucross"
+PREFERRED_PROVIDER_virtual/psplash = "psplash-mucross"
+
+DL_DIR ?= "${BSPDIR}/downloads"
+SSTATE_DIR ?= "${BSPDIR}/sstate-cache"
+
+BB_DISKMON_DIRS = "\
+    STOPTASKS,${TMPDIR},1G,100K \
+    STOPTASKS,${DL_DIR},1G,100K \
+    STOPTASKS,${SSTATE_DIR},1G,100K \
+    STOPTASKS,/tmp,100M,100K \
+    ABORT,${TMPDIR},100M,1K \
+    ABORT,${DL_DIR},100M,1K \
+    ABORT,${SSTATE_DIR},100M,1K \
+    ABORT,/tmp,10M,1K"
+
+PACKAGECONFIG_append_pn-qemu-native = " sdl"
+PACKAGECONFIG_append_pn-nativesdk-qemu = " sdl"
+PACKAGECONFIG_append_pn-qtdeclarative = " qtxmlpatterns"
+PACKAGECONFIG_append_pn-qtbase = "accessibility qml-debug"
+PACKAGECONFIG_pn-xserver-nodm-init = "nocursor"
+RDEPENDS_packagegroup-core-x11-utils_remove_pn-packagegroup-core-x11 = "xinput-calibrator"
+CONF_VERSION = "1"
+
+# Special RPI Boot config options
+DISABLE_RPI_BOOT_LOGO = "1"
+RPI_USE_U_BOOT = "1"
+RPI_EXTRA_CONFIG = ' \n \
+    avoid_safe_mode=1 \n \
+    boot_delay=0 \n \
+    # --- Software I2C --- \n \
+    dtoverlay=vdo-terminal-4-i2c-gpio \n \
+    \n \
+    # --- I2C RTC --- \n \
+    dtoverlay=vdo-terminal-4-i2c-rtc-gpio,mcp7940x \n \
+    \n \
+    # --- I2C Touch --- \n \
+    # touch interrupt pin \n \
+    gpio=10=ip \n \
+    # touch reset pin \n \
+    gpio=11=op,dh \n \
+    # touch driver overlay \n \
+    dtoverlay=vdo-terminal-4-i2c-edt-ft5406-gpio,edt-ft5x06 \n \
+    \n \
+    # --- Hardware PWM --- \n \
+    dtparam=audio=off \n \
+    dtoverlay=vdo-terminal-4-pwm-2chan \n \
+    # PWM backlight \n \
+    dtoverlay=vdo-terminal-4-pwm-backlight \n \
+    \n \
+    # --- Raspberry Pi 7\" display/touch screen --- \n \
+    display_rotate=2 \n \
+    \n \
+    # switch off blocks interfering with dpi display \n \
+    dtparam=i2c_arm=off \n \
+    dtparam=spi=off \n \
+    dtparam=uart1=off \n \
+    hdmi_blanking=2 \n \
+    hdmi_ignore_edid=0xa5000080 \n \
+    hdmi_ignore_hotplug=1 \n \
+    hdmi_ignore_edid=1 \n \
+    \n \
+    # use 18bpp dpi overlay \n \
+    dtoverlay=vdo-terminal-4-dpi18 \n \
+    \n \
+    overscan_left=0 \n \
+    overscan_right=0 \n \
+    overscan_top=0 \n \
+    overscan_bottom=0 \n \
+    \n \
+    framebuffer_width=800 \n \
+    framebuffer_height=480 \n \
+    \n \
+    enable_dpi_lcd=1 \n \
+    display_default_lcd=1 \n \
+    \n \
+    dpi_group=2 \n \
+    dpi_mode=87 \n \
+    dpi_output_format=0x6f016 \n \
+    dpi_timings=800 0 210 2 0 480 0 22 2 0 0 0 0 50 0 32000000 3 \n \
+    \n \
+    # --- Devicetree debugging --- \n \
+    dtdebug=1 \n \
+    '
+
+INHERIT += "archiver"
+ARCHIVER_MODE[src] = "original"
+ARCHIVER_MODE[diff] = "1"
+ARCHIVER_MODE[recipe] = "1"
+COPY_LIC_MANIFEST = "1"
+COPY_LIC_DIRS = "1"
+COPYLEFT_LICENSE_EXCLUDE = "None Closed Proprietory CLOSED"
+COPYLEFT_RECIPE_TYPE = "target"
+LICENSE_CREATE_PACKAGE = "1"
+
+BB_DANGLINGAPPENDS_WARNONLY = "1"
+
+INHERIT += "rm_work"

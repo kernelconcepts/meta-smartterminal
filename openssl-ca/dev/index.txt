@@ -1,0 +1,2 @@
+V	99991231235959Z		01	unknown	/O=SmartTerminal/CN=SmartTerminal Development CA Development
+V	99991231235959Z		02	unknown	/O=SmartTerminal/CN=SmartTerminal Development-1
