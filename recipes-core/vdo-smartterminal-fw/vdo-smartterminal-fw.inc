@@ -10,7 +10,7 @@ inherit base bin_package
 
 FILESEXTRAPATHS_prepend := "${THISDIR}/files:"
 
-SRC_URI += "file://smartterminal-app.tar.gz \
+SRC_URI = "file://smartterminal-app.tar.gz \
 "
 
 INSANE_SKIP_${PN} = "ldflags"
