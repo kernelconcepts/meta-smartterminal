@@ -159,7 +159,7 @@ if [ "$build_dir_setup_enabled" = "true" ]; then
     mv conf/local.conf conf/local.conf.sample
 
     # Generate the local.conf based on the Yocto defaults
-    TEMPLATES=$CWD/yocto/meta-vdo-smartterminal/conf
+    TEMPLATES=$CWD/yocto/meta-smartterminal/conf
     cat conf/local.conf.sample > conf/local.conf
     cat >> conf/local.conf <<EOF
 

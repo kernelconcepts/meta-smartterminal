@@ -37,7 +37,7 @@ rootfs_add_files() {
   # image build id
   #
   currentdir=`pwd`
-  cd ${BSPDIR}/yocto/meta-vdo-smartterminal
+  cd ${BSPDIR}/yocto/meta-smartterminal
   git rev-parse --short HEAD > ${IMAGE_ROOTFS}/etc/build_id
   cd ${currentdir}
 }
