@@ -28,7 +28,7 @@ for BOOT_SLOT in "${BOOT_ORDER}"; do
 done
 
 if test -n "${bootargs}"; then
-  saveenv
+#  saveenv
 else
   echo "No valid slot found, resetting tries to 3"
   setenv BOOT_A_LEFT 3

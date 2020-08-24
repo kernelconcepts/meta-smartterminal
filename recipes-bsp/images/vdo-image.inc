@@ -108,3 +108,11 @@ IMAGE_INSTALL_append = "\
 	qtmultimedia \
 	qtconnectivity \
 	"
+	
+IMAGE_INSTALL_append = "\
+    u-boot \
+    rpi-rauc-boot-selection-scr \
+    "	
+    
+#    linux-raspberrypi
+    

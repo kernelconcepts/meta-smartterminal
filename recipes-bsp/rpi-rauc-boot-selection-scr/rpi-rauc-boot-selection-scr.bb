@@ -13,7 +13,8 @@ do_compile() {
     mkimage -T script -C none -n "boot selection script" -d "${WORKDIR}/boot_selection.cmd" boot_selection.scr
 }
 
-inherit deploy nopackages
+inherit deploy 
+#nopackages
 
 do_deploy() {
     install -d ${DEPLOYDIR}
@@ -21,3 +22,10 @@ do_deploy() {
 }
 
 addtask do_deploy after do_compile before do_build
+
+do_install() {
+        install -d ${D}/boot
+        install -m 0644 boot_selection.scr ${D}/boot
+}
+
+FILES_${PN} += "/boot"
