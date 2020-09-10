@@ -1,6 +1,10 @@
-test -n "${BOOT_ORDER}" || setenv BOOT_ORDER "A B"
-test -n "${BOOT_A_LEFT}" || setenv BOOT_A_LEFT 3
-test -n "${BOOT_B_LEFT}" || setenv BOOT_B_LEFT 3
+setenv SAVEENV 0
+test -n "${BOOT_ORDER}" || setenv BOOT_ORDER "A B" && setenv SAVEENV 1
+test -n "${BOOT_A_LEFT}" || setenv BOOT_A_LEFT 3 && setenv SAVEENV 1
+test -n "${BOOT_B_LEFT}" || setenv BOOT_B_LEFT 3 && setenv SAVEENV 1
+if test ${SAVEENV} -gt 0; then
+  saveenv
+fi
 
 echo "##################################"
 echo "## RAUC UPDATER"
