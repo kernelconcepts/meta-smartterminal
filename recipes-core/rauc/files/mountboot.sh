@@ -2,4 +2,4 @@
 
 mount /boot
 
-
+exit 0
