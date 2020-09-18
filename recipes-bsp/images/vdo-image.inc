@@ -6,7 +6,7 @@ inherit qmake5_fixes
 
 TOOLCHAIN_TARGET_TASK_append += "qtbase-doc" 
 TOOLCHAIN_HOST_TASK_append += "nativesdk-make"
-TOOLCHAIN_HOST_TASK_append += "nativesdk-qtscxml nativesdk-qtscxml-tools"
+TOOLCHAIN_HOST_TASK_append += "nativesdk-qtscxml nativesdk-qtscxml-tools nativesdk-qtdeclarative-tools"
 
 
 rootfs_add_files() {
