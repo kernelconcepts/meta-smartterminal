@@ -20,6 +20,16 @@ SRC_URI += "file://vdo-terminal-4-i2c-gpio-overlay.dts;subdir=git/arch/${ARCH}/b
 "
 
 SRC_URI += "file://0001-drivers-input-touchscreen-update-edt-ft5x06.patch \
+            file://0101-mac80211-assure-all-fragments-are-encrypted.patch \
+            file://0102-mac80211-prevent-mixed-key-and-fragment-cache-attack.patch \
+            file://0103-mac80211-properly-handle-A-MSDUs-that-start-with-an-.patch \
+            file://0104-cfg80211-mitigate-A-MSDU-aggregation-attacks.patch \
+            file://0105-mac80211-drop-A-MSDUs-on-old-ciphers.patch \
+            file://0106-mac80211-add-fragment-cache-to-sta_info.patch \
+            file://0107-mac80211-check-defrag-PN-against-current-frame.patch \
+            file://0108-mac80211-prevent-attacks-on-TKIP-WEP-as-well.patch \
+            file://0109-mac80211-do-not-accept-forward-invalid-EAPOL-frames.patch \
+            file://0110-mac80211-extend-protection-against-mixed-key-and-fra.patch \
 "
 
 KERNEL_DEVICETREE += "overlays/vdo-terminal-4-i2c-gpio.dtbo \
