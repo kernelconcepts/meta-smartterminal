@@ -18,11 +18,15 @@ if [ $? -ne 0 ]; then
 	exit 2
 fi
 
-# Copy Devicetree / Devictree Overlays, Kernel Image and Modules if needed...
+# copy kernel image
+cmp -s ${SRCDIR}/uImage ${DSTDIR}/uImage && echo "skip copy uImage" || cp "${SRCDIR}/uImage" "${DSTDIR}/uImage"
+if [ $? -ne 0 ]; then
+	echo Error copying file uImage
+	exit 2
+fi
+
+# copy devicetree / devictree overlays if needed
 # TODO
 
 
 sync
-
-
-
