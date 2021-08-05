@@ -18,6 +18,10 @@ if [ $? -ne 0 ]; then
 	exit 2
 fi
 
+# Copy Devicetree / Devictree Overlays, Kernel Image and Modules if needed...
+# TODO
+
+
 sync
 
 

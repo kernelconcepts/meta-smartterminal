@@ -111,6 +111,9 @@ IMAGE_INSTALL_append = "\
 	
 IMAGE_INSTALL_append = "\
     u-boot \
+    kernel-devicetree \
+    kernel-modules \
+    kernel-image \
     rpi-rauc-boot-selection-scr \
     "	
     
