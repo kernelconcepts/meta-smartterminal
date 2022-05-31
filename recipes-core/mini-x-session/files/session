@@ -7,6 +7,7 @@ fi
 # /etc/dev-release created (or not) in
 # receipes-bsp/images/vdo-*-image.bb
 if [ -e /etc/dev-release ]; then
+    echo 1000 > /sys/module/block/parameters/events_dfl_poll_msecs
 	/usr/bin/vt4gui &
 else
 	while /bin/true ; do /usr/bin/vt4gui ; sleep 1 ; done &
