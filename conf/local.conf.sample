@@ -1,7 +1,7 @@
 MACHINE ?= 'vdo-smartterminal'
 
 DISTRO ?= 'poky'
-DISTRO_FEATURES_remove = "wayland systemd 3g"
+DISTRO_FEATURES_remove = "wayland systemd 3g nfs"
 DISTRO_FEATURES_append = "opengl x11 smbfs pam"
 
 PACKAGE_CLASSES ?= "package_ipk"
