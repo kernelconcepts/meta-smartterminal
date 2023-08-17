@@ -14,7 +14,7 @@
   <project remote="yocto" revision="4e5be97d75668804694412f9b86e9291edb38b9d" name="meta-raspberrypi" path="yocto/meta-raspberrypi"/><!-- "thud" -->
   <project remote="qt5" revision="1520d5b2b2beec5e1c3209d3178219e93ef08bca" name="meta-qt5" path="yocto/meta-qt5"/><!-- "thud" -->
   <project remote="github" revision="10eec8c7e429faa0b03e7eebcc78f0fa3466992c" name="rauc/meta-rauc" path="yocto/meta-rauc"/><!-- "thud" -->
-  <project remote="kc-github" revision="b6aab0d2c458437e147d2eaf96197f6956a02347" name="meta-kc-bsp" path="yocto/meta-kc-bsp"/><!-- "master -->
+  <project remote="kc-github" revision="b6aab0d2c458437e147d2eaf96197f6956a02347" name="meta-kc-bsp" path="yocto/meta-kc-bsp"/><!-- "thud-20.0.4 -->
   <project remote="kc-github" revision="master" name="meta-smartterminal" path="yocto/meta-smartterminal">
 	<linkfile dest="README" src="README"/>
 	<linkfile dest="setup-environment" src="setup-environment"/>
