@@ -25,9 +25,6 @@
 		    gt911@5d {
 			    compatible = "goodix,gt911";
 			    reg = <0x5d>;
-			    interrupt-parent = <&gpio>;
-			    interrupts = <0 0>;
-
 				status = "okay";
 				interrupt-parent = <&gpio>;
 				interrupts = <10 2>;
