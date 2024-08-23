@@ -1,3 +1,3 @@
-FILESEXTRAPATHS_prepend := "${THISDIR}/files:"
+FILESEXTRAPATHS:prepend := "${THISDIR}/files:"
 
-RDEPENDS_${BPN} += "dotsplash-theme-slideshow"
+RDEPENDS:${BPN} += "dotsplash-theme-slideshow"

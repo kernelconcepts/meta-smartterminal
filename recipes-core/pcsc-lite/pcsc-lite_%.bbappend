@@ -1,14 +1,14 @@
-FILESEXTRAPATHS_prepend := "${THISDIR}/files:"
+FILESEXTRAPATHS:prepend := "${THISDIR}/files:"
 
 SRC_URI += "file://pcscd.sh \
 "
 
-do_install_append () {
+do_install:append () {
     install -d ${D}/${sysconfdir}/init.d
     install -m 755 ${WORKDIR}/pcscd.sh ${D}/${sysconfdir}/init.d
 }
 
-FILES_${PN} += "${sysconfdir}/init.d/pcscd.sh"
+FILES:${PN} += "${sysconfdir}/init.d/pcscd.sh"
 
 inherit update-rc.d
 

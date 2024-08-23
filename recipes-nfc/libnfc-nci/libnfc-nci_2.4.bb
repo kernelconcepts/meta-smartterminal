@@ -20,18 +20,18 @@ EXTRA_OECONF += "i2c_available=yes --prefix=${WORKDIR}"
 
 #PACKAGES = "${PN}"
 
-#FILES_${PN} += "${libdir}/lib*.so"
-FILES_${PN} += "${libdir}"
-FILES_${PN}-dev = "${includedir} ${libdir}/libnfc_nci_linux.so"
+#FILES:${PN} += "${libdir}/lib*.so"
+FILES:${PN} += "${libdir}"
+FILES:${PN}-dev = "${includedir} ${libdir}/libnfc_nci_linux.so"
 
 
-#SECTION_${PN}-dev = "devel"
-#ALLOW_EMPTY_${PN}-dev = "1"
-#RDEPENDS_${PN}-dev = "${PN} (= ${EXTENDPKGV})"
-#RDEPENDS_${PN} = "${PN}-dev (= ${EXTENDPKGV})"
+#SECTION:${PN}-dev = "devel"
+#ALLOW_EMPTY:${PN}-dev = "1"
+#RDEPENDS:${PN}-dev = "${PN} (= ${EXTENDPKGV})"
+#RDEPENDS:${PN} = "${PN}-dev (= ${EXTENDPKGV})"
 
 
-do_compile_append() {
+do_compile:append() {
     for i in $(find ${B} -name "*.pc") ; do
         sed -i -e s:${WORKDIR}:/usr:g \
                   $i

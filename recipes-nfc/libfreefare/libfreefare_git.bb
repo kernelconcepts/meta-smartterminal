@@ -6,7 +6,7 @@ LIC_FILES_CHKSUM = "file://COPYING;md5=9827bc32c2b36ae4121d6583b582c9c0"
 
 DEPENDS = "libusb-compat libnfc openssl"
 
-FILESEXTRAPATHS_prepend := "${THISDIR}/${PN}-${PV}:"
+FILESEXTRAPATHS:prepend := "${THISDIR}/${PN}-${PV}:"
 
 SRCREV = "e95406c0d1b417ff6db7ff8ee95df1b5981ec7b5"
 SRC_URI = "git://github.com/nfc-tools/libfreefare.git"

@@ -1,8 +1,8 @@
-FILESEXTRAPATHS_prepend := "${THISDIR}/files:"
+FILESEXTRAPATHS:prepend := "${THISDIR}/files:"
 
 dirs755 += "/data"
 
-do_install_append () {
+do_install:append () {
     touch ${D}${sysconfdir}/resolv.conf
     cat >> ${D}${sysconfdir}/fstab <<EOF
     /dev/mmcblk0p1	/boot	vfat	defaults,sync,noatime,flush,noauto	0	0

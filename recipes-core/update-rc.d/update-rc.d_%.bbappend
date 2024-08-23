@@ -1,10 +1,10 @@
-FILESEXTRAPATHS_prepend := "${THISDIR}/files:"
+FILESEXTRAPATHS:prepend := "${THISDIR}/files:"
 
 SRC_URI += "file://backlight.sh \
             file://cool.sh \
 "
 
-do_install_append () {
+do_install:append () {
     install -d ${D}/${sysconfdir}/init.d
     install -d ${D}/${sysconfdir}/rcS.d
     install -m 644 ${WORKDIR}/backlight.sh ${D}/${sysconfdir}/init.d

@@ -1,3 +1,3 @@
-FILESEXTRAPATHS_prepend := "${THISDIR}/${BPN}:"
-FILES_${PN}-dev = ""
-ALLOW_EMPTY_${PN}-dev = "0"
+FILESEXTRAPATHS:prepend := "${THISDIR}/${BPN}:"
+FILES:${PN}-dev = ""
+ALLOW_EMPTY:${PN}-dev = "0"

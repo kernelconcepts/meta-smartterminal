@@ -16,4 +16,4 @@ inherit qmake5
 S = "${WORKDIR}/git"
 
 PACKAGES += "${PN}-example"
-FILES_${PN}-example = "/opt"
+FILES:${PN}-example = "/opt"
