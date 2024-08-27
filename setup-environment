@@ -184,7 +184,7 @@ fi
 
 echo "Setting limit for open files to 4096."
 ulimit -n 4096
-export BB_ENV_EXTRAWHITE="$BB_ENV_EXTRAWHITE UBOOT_CONFIG"
+export BB_ENV_PASSTHROUGH_ADDITIONS="$BB_ENV_EXTRAWHITE UBOOT_CONFIG"
 
 cat <<EOF
 
