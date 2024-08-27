@@ -6,7 +6,7 @@ LIC_FILES_CHKSUM = "file://${COMMON_LICENSE_DIR}/Apache-2.0;md5=89aea4e17d99a7ca
 #TARGET_CC_ARCH += "${LDFLAGS}"
 
 SRCREV = "R2.4"
-SRC_URI = "git://github.com/NXPNFCLinux/linux_libnfc-nci.git"
+SRC_URI = "git://github.com/NXPNFCLinux/linux_libnfc-nci.git;protocol=https;branch=master"
 
 S = "${WORKDIR}/git"
 
