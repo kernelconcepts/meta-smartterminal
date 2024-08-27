@@ -17,7 +17,6 @@ BBLAYERS = " \
   ${BSPDIR}/yocto/meta-qt5 \
   ${BSPDIR}/yocto/meta-rauc \
   \
-  ${BSPDIR}/yocto/meta-kc-bsp \
   ${BSPDIR}/yocto/meta-raspberrypi \
   ${BSPDIR}/yocto/meta-smartterminal \
 "

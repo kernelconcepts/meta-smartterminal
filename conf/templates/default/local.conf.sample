@@ -2,11 +2,11 @@ MACHINE ?= 'vdo-smartterminal'
 
 DISTRO ?= 'poky'
 DISTRO_FEATURES:remove = "wayland systemd 3g nfs"
-DISTRO_FEATURES:append = "opengl x11 smbfs pam"
+DISTRO_FEATURES:append = "opengl x11 smbfs pam rauc polkit"
 
 PACKAGE_CLASSES ?= "package_ipk"
 
-USER_CLASSES ?= "buildstats image-mklibs"
+USER_CLASSES ?= "buildstats"
 PATCHRESOLVE = "noop"
 
 SPLASH_${MACHINE} = "psplash-mucross"
@@ -31,7 +31,7 @@ PACKAGECONFIG:append:pn-qtdeclarative = " qtxmlpatterns"
 PACKAGECONFIG:append:pn-qtbase = "accessibility qml-debug"
 PACKAGECONFIG:pn-xserver-nodm-init = "nocursor"
 RDEPENDS:packagegroup-core-x11-utils:remove:pn-packagegroup-core-x11 = "xinput-calibrator"
-CONF_VERSION = "1"
+CONF_VERSION = "2"
 
 # Special RPI Boot config options
 DISABLE_RPI_BOOT_LOGO = "1"
@@ -101,6 +101,7 @@ ARCHIVER_MODE[recipe] = "1"
 COPY_LIC_MANIFEST = "1"
 COPY_LIC_DIRS = "1"
 COPYLEFT_LICENSE_EXCLUDE = "None Closed Proprietory CLOSED"
+LICENSE_FLAGS_ACCEPTED = "synaptics-killswitch"
 COPYLEFT_RECIPE_TYPE = "target"
 LICENSE_CREATE_PACKAGE = "1"
 
