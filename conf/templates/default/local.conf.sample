@@ -33,6 +33,8 @@ PACKAGECONFIG:pn-xserver-nodm-init = "nocursor"
 RDEPENDS:packagegroup-core-x11-utils:remove:pn-packagegroup-core-x11 = "xinput-calibrator"
 CONF_VERSION = "2"
 
+#DISABLE_VC4GRAPHICS = "1"
+
 # Special RPI Boot config options
 DISABLE_RPI_BOOT_LOGO = "1"
 RPI_USE_U_BOOT = "1"
@@ -73,6 +75,8 @@ RPI_EXTRA_CONFIG = ' \n \
     \n \
     # use 18bpp dpi overlay \n \
     dtoverlay=vdo-terminal-4-dpi18 \n \
+    # dtoverlay=vc4-kms-v3d \n \
+    dtoverlay=vc4-kms-dpi-generic,rgb666-padhi \n \
     \n \
     overscan_left=0 \n \
     overscan_right=0 \n \
