@@ -8,7 +8,7 @@
 ### END INIT INFO
 
 
-(i2cset -y 3 0x41 3 0xfd
+(i2cset -y 11 0x41 3 0xfd
 
 while [ 1 ]
 do
@@ -16,12 +16,12 @@ do
 	#echo $temp
 	if [ $temp -lt "65" ]
 	then
-		i2cset -y 3 0x41 1 0x00
+		i2cset -y 11 0x41 1 0x00
 		#echo Cooler off
 	fi
 	if [ $temp -gt "70" ]
 	then
-		i2cset -y 3 0x41 1 0x02
+		i2cset -y 11 0x41 1 0x02
 		#echo Cooler on
 	fi
 	sleep 10
