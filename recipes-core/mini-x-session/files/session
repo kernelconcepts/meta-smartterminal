@@ -13,4 +13,6 @@ else
 	while /bin/true ; do /usr/bin/vt4gui ; sleep 1 ; done &
 fi
 
+#DISPLAY=:0 /usr/bin/xrandr --output None-1 --rotate inverted
+
 exec matchbox-window-manager
