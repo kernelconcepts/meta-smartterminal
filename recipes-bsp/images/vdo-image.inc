@@ -61,6 +61,7 @@ IMAGE_INSTALL:append = "\
 	kmod \
 	lighttpd \
 	libavahi-client \
+	libavahi-qt5 \
 	lsof \
 	mmc-utils \
 	ntp \
