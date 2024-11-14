@@ -1,4 +1,4 @@
-MACHINE ?= 'vdo-smartterminal'
+MACHINE = 'vdo-smartterminal'
 
 DISTRO ?= 'poky'
 DISTRO_FEATURES:remove = "wayland systemd 3g nfs"
@@ -39,8 +39,11 @@ CONF_VERSION = "2"
 DISABLE_RPI_BOOT_LOGO = "1"
 RPI_USE_U_BOOT = "1"
 RPI_EXTRA_CONFIG = ' \n \
-    avoid_safe_mode=1 \n \
+dtparam=backlight-pwm=1,backlight-pwm-chan=1,backlight-pwm-gpio=19 \n \
+    #avoid_safe_mode=1 \n \
+    enable_uart=1 \n \
     boot_delay=0 \n \
+    total_mem=1008 \n \
     # --- Software I2C --- \n \
     dtoverlay=vdo-terminal-4-i2c-gpio \n \
     \n \
@@ -63,6 +66,7 @@ RPI_EXTRA_CONFIG = ' \n \
     \n \
     # --- Raspberry Pi 7\" display/touch screen --- \n \
     display_rotate=2 \n \
+    # instead use video=DPI-1:800x480@60,rotate=180 \n \
     \n \
     # switch off blocks interfering with dpi display \n \
     dtparam=i2c_arm=off \n \
@@ -77,6 +81,10 @@ RPI_EXTRA_CONFIG = ' \n \
     dtoverlay=vdo-terminal-4-dpi18 \n \
     # dtoverlay=vc4-kms-v3d \n \
     dtoverlay=vc4-kms-dpi-generic,rgb666-padhi \n \
+    dtparam=hactive=800,hfp=210,hsync=2,hbp=0 \n \
+    dtparam=vactive=480,vfp=22,vsync=2,vbp=0 \n \
+    dtparam=clock-frequency=32000000 \n \
+    #avoid_warnings=2 \n \
     \n \
     overscan_left=0 \n \
     overscan_right=0 \n \
