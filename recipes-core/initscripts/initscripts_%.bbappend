@@ -6,5 +6,5 @@ SRC_URI += "\
 
 do_install:append () {
     install -m 0755  ${S}/powersave.sh  ${D}${sysconfdir}/init.d
-    update-rc.d -r ${D} rmnologin.sh start 99 2 3 4 5 .
+    update-rc.d -r ${D} powersave.sh start 99 2 3 4 5 .
 }
