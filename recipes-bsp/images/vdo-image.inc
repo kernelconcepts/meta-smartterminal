@@ -16,7 +16,7 @@ rootfs_add_files() {
   # the license manifest file path inside the rootfs
   # needs to be kept in sync with the application
   #
-  filename=${LICENSE_DIRECTORY}/${IMAGE_NAME}/license.manifest
+  filename=${LICENSE_DIRECTORY}/${SSTATE_PKGARCH}/${IMAGE_NAME}/license.manifest
   destfile=${IMAGE_ROOTFS}/etc/license-manifest.txt
   if [ -e ${filename} ]
   then
