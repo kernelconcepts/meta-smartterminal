@@ -1,0 +1,28 @@
+From cb386346302e6057160675a7103d16fa45fdeb31 Mon Sep 17 00:00:00 2001
+From: Ole Reinhardt <ole.reinhardt@kernelconcepts.de>
+Date: Fri, 22 Nov 2024 13:08:16 +0100
+Subject: [PATCH] Add timeout 0 and background options to wait for ever for a
+ lease in background
+Upstream-Status: Inappropriate [for local device only]
+
+---
+ src/dhcpcd.conf | 6 ++++++
+ 1 file changed, 6 insertions(+)
+
+diff --git a/src/dhcpcd.conf b/src/dhcpcd.conf
+index 916e82da..64e4c9c4 100644
+--- a/src/dhcpcd.conf
++++ b/src/dhcpcd.conf
+@@ -46,3 +46,9 @@ require dhcp_server_identifier
+ #slaac hwaddr
+ # OR generate Stable Private IPv6 Addresses based from the DUID
+ slaac private
++
++# Set timeout 0 means waiting forever for a lease
++timeout 0
++
++# Forcing to directly go into background
++background
+-- 
+2.34.1
+
