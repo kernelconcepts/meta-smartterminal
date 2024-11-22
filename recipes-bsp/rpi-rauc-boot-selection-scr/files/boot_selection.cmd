@@ -12,14 +12,12 @@ for BOOT_SLOT in "${BOOT_ORDER}"; do
     # skip remaining slots
   elif test "x${BOOT_SLOT}" = "xA"; then
     if test ${BOOT_A_LEFT} -gt 0; then
-      setexpr BOOT_A_LEFT ${BOOT_A_LEFT} - 1
       echo "Found valid slot A, ${BOOT_A_LEFT} attempts remaining"
       run default_bootargs
       setenv bootargs "${bootargs_rpi} root=/dev/mmcblk0p2 rauc.slot=A rootwait rootfstype=ext4"
     fi
   elif test "x${BOOT_SLOT}" = "xB"; then
     if test ${BOOT_B_LEFT} -gt 0; then
-      setexpr BOOT_B_LEFT ${BOOT_B_LEFT} - 1
       echo "Found valid slot B, ${BOOT_B_LEFT} attempts remaining"
       run default_bootargs
       setenv bootargs "${bootargs_rpi} root=/dev/mmcblk0p3 rauc.slot=B rootwait rootfstype=ext4"
