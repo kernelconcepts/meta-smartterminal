@@ -3,6 +3,8 @@ From: Christian Hilberg <hilberg@kernelconcepts.de>
 Date: Mon, 18 Nov 2019 11:11:32 +0100
 Subject: [PATCH] board: raspberrypi: rpi: never cache old eth mac in env
 
+Upstream-Status: Inappropriate [oe specific]
+
 ---
  board/raspberrypi/rpi/rpi.c | 19 +++++++++++++------
  1 file changed, 13 insertions(+), 6 deletions(-)

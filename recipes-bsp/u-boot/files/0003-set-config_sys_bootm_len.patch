@@ -4,6 +4,8 @@ Date: Fri, 30 Aug 2024 18:50:31 +0200
 Upstream-Status: Pending
 Subject: [PATCH] Set CONFIG_SYS_BOOTM_LEN=0xA00000
 
+Upstream-Status: Inappropriate [oe specific]
+
 ---
  configs/rpi_3_32b_defconfig | 1 +
  1 file changed, 1 insertion(+)
