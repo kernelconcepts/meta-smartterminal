@@ -14,3 +14,14 @@ do_install:append() {
 }
 
 FILES:${PN} += "/opt/vdo"
+
+SRC_URI = "git://gitlab.kernelconcepts.de/public-projects/psplash.git;protocol=https;branch=master \
+           file://psplash-poky-img.h \
+           file://psplash-bar-img.h \
+           file://psplash-default \
+           file://psplash-init \
+           file://splashfuncs \
+           git://gitlab.kernelconcepts.de/public-projects/psplash.git;protocol=https;branch=master \
+           file://vdo-bootsplash-6.pnm \
+           file://0001-psplash-fix-use-of-inline-function.patch \
+           "

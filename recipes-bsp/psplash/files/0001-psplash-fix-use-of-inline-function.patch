@@ -1,0 +1,40 @@
+From c11f852cbd780f254c876332ac5489b51a9ebbd4 Mon Sep 17 00:00:00 2001
+From: Florian Boor <florian.boor@kernelconcepts.de>
+Date: Fri, 22 Nov 2024 12:33:30 +0100
+Subject: [PATCH] psplash: fix use of inline function
+
+---
+ psplash-fb.c | 2 +-
+ psplash-fb.h | 7 +++++++
+ 2 files changed, 8 insertions(+), 1 deletion(-)
+
+diff --git a/psplash-fb.c b/psplash-fb.c
+index 41b111e..f8e7556 100644
+--- a/psplash-fb.c
++++ b/psplash-fb.c
+@@ -289,7 +289,7 @@ fail:
+ 
+ #define OFFSET(fb,x,y) (((y) * (fb)->stride) + ((x) * ((fb)->bpp >> 3)))
+ 
+-inline void
++void
+ psplash_fb_plot_pixel (PSplashFB   *fb,
+                        int          x,
+                        int          y,
+diff --git a/psplash-fb.h b/psplash-fb.h
+index ea060a3..a8209ca 100644
+--- a/psplash-fb.h
++++ b/psplash-fb.h
+@@ -147,5 +147,12 @@ psplash_fb_draw_image_rle_round_corners (PSplashFB    *fb,
+                                          int           img_bytes_per_pixel,
+                                          uint8        *rle_data);
+ 
++void
++psplash_fb_plot_pixel (PSplashFB   *fb,
++                       int          x,
++                       int          y,
++                       uint8        red,
++                       uint8        green,
++                       uint8        blue);
+ #endif
+ 
