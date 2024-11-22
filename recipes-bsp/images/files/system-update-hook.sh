@@ -25,8 +25,33 @@ if [ $? -ne 0 ]; then
 	exit 2
 fi
 
-# copy devicetree / devictree overlays if needed
-# TODO
+# copy configuration
+cmp -s ${SRCDIR}/config.txt ${DSTDIR}/config.txt && echo "skip copy config" || cp "${SRCDIR}/config.txt" "${DSTDIR}/config.txt"
+if [ $? -ne 0 ]; then
+	echo Error copying config
+	exit 2
+fi
 
+# copy devicetrees
+for f in $(ls ${SRCDIR}/*.dtb)
+do
+    f=$(basename ${f})
+    cmp -s "${SRCDIR}/${f}" "${DSTDIR}/${f}" && echo "skip ${f}" || cp "${SRCDIR}/${f}" "${DSTDIR}/${f}"
+    if [ $? -ne 0 ]; then
+        echo Error copying devicetree ${f}
+        exit 2
+    fi
+done
+
+# copy devicetree overlays
+for f in $(ls ${SRCDIR}/*.dtbo)
+do
+    f=$(basename ${f})
+    cmp -s "${SRCDIR}/${f}" "${DSTDIR}/overlays/${f}" && echo "skip ${f}" || cp "${SRCDIR}/${f}" "${DSTDIR}/overlays/${f}"
+    if [ $? -ne 0 ]; then
+        echo Error copying overlay ${f}
+        exit 2
+    fi
+done
 
 sync
