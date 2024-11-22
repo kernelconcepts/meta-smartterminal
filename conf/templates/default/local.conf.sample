@@ -1,7 +1,7 @@
 MACHINE = 'vdo-smartterminal'
 
 DISTRO ?= 'poky'
-DISTRO_FEATURES:remove = "wayland systemd 3g nfs"
+DISTRO_FEATURES:remove = "wayland systemd 3g nfs bluetooth"
 DISTRO_FEATURES:append = "opengl x11 smbfs pam rauc polkit"
 
 PACKAGE_CLASSES ?= "package_ipk"
@@ -9,7 +9,7 @@ PACKAGE_CLASSES ?= "package_ipk"
 USER_CLASSES ?= "buildstats"
 PATCHRESOLVE = "noop"
 
-SPLASH_${MACHINE} = "psplash-mucross"
+SPLASH = "psplash-mucross"
 PREFERRED_PROVIDER_virtual/psplash = "psplash-mucross"
 
 DL_DIR ?= "${BSPDIR}/downloads"
