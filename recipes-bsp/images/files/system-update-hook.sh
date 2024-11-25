@@ -75,4 +75,11 @@ do
     fi
 done
 
+# copy overlay map
+cmp -s "${SRCDIR}/overlay_map.dtb" "${DSTDIR}/overlays/overlay_map.dtb" && echo "skip overlay_map.dtb" || cp "${SRCDIR}/overlay_map.dtb" "${DSTDIR}/overlays/overlay_map.dtb"
+if [ $? -ne 0 ]; then
+    echo Error copying overlay map
+    exit 2
+fi
+
 sync
