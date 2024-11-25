@@ -57,10 +57,10 @@ if [ $? -ne 0 ]; then
 	exit 2
 fi
 
-# copy configuration
-cmp -s ${SRCDIR}/cmdline.txt ${DSTDIR}/cmdline.txt && echo "skip copy config" || cp "${SRCDIR}/cmdline.txt" "${DSTDIR}/cmdline.txt"
+# copy kernel cmdline
+cmp -s ${SRCDIR}/cmdline.txt ${DSTDIR}/cmdline.txt && echo "skip copy kernel cmdline" || cp "${SRCDIR}/cmdline.txt" "${DSTDIR}/cmdline.txt"
 if [ $? -ne 0 ]; then
-	echo Error copying config
+	echo Error copying kernel cmdline
 	exit 2
 fi
 
