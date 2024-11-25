@@ -11,6 +11,17 @@ if [ $? -ne 0 ]; then
 	exit 2
 fi
 
+# copy raspi boot stuff
+for f in $(ls ${SRCDIR}/*.elf ${SRCDIR}/*.dat)
+do
+    f=$(basename ${f})
+    cmp -s "${SRCDIR}/${f}" "${DSTDIR}/${f}" && echo "skip ${f}" || cp "${SRCDIR}/${f}" "${DSTDIR}/${f}"
+    if [ $? -ne 0 ]; then
+        echo Error copying bootstuff ${f}
+        exit 2
+    fi
+done
+
 # copy bootloader
 cmp -s ${SRCDIR}/u-boot.bin ${DSTDIR}/kernel7.img && echo "skip copy kernel7.img" || cp "${SRCDIR}/u-boot.bin" "${DSTDIR}/kernel7.img"
 if [ $? -ne 0 ]; then
