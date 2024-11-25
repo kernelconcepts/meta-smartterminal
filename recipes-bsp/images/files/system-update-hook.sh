@@ -94,3 +94,5 @@ if [ $? -ne 0 ]; then
 fi
 
 sync
+
+exit 0
