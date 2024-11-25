@@ -116,6 +116,7 @@ IMAGE_INSTALL_append = "\
     kernel-image \
     rpi-rauc-boot-selection-scr \
     rpi-config-package \
+    rpi-bootfiles-package \
     "	
     
 #    linux-raspberrypi
