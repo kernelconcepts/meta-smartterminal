@@ -14,12 +14,12 @@ do_configure[noexec] = "1"
 do_compile[noexec] = "1"
 
 
-INSANE_SKIP:${PN} = "ldflags arch"
+INSANE_SKIP_${PN} = "ldflags arch"
 INHIBIT_PACKAGE_STRIP = "1"
 INHIBIT_SYSROOT_STRIP = "1"
 INHIBIT_PACKAGE_DEBUG_SPLIT = "1"
 
-FILES:${PN} = "/boot"
+FILES_${PN} = "/boot"
 
 do_install () {
     install -d ${D}/boot
