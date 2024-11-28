@@ -13,7 +13,7 @@ do_fetch[noexec] = "1"
 do_configure[noexec] = "1"
 do_compile[noexec] = "1"
 
-FILES:${PN} = "/boot"
+FILES_${PN} = "/boot"
 
 do_install () {
     install -D -m644 ${DEPLOY_DIR_IMAGE}/${BOOTFILES_DIR_NAME}/config.txt ${D}/boot/config.txt
