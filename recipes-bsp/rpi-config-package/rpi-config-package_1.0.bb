@@ -9,6 +9,8 @@ PACKAGE_ARCH = "${MACHINE_ARCH}"
 
 INHIBIT_DEFAULT_DEPS = "1"
 
+BOOTFILES_DIR_NAME = "bcm2835-bootfiles"
+
 do_fetch[noexec] = "1"
 do_configure[noexec] = "1"
 do_compile[noexec] = "1"
