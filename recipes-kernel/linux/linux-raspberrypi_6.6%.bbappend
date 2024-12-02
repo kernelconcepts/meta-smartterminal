@@ -11,6 +11,7 @@ SRC_URI += "file://vdo-terminal-4-i2c-gpio-overlay.dts;subdir=git/arch/${ARCH}/b
             file://vdo-terminal-4-pwm-2chan-overlay.dts;subdir=git/arch/${ARCH}/boot/dts/overlays \
             file://vdo-terminal-4-pwm-backlight-overlay.dts;subdir=git/arch/${ARCH}/boot/dts/overlays \
             file://vdo-terminal-4-dpi18-overlay.dts;subdir=git/arch/${ARCH}/boot/dts/overlays \
+            file://0001-cp210x-Forward-port-driver-from-4.14.x-which-is-know.patch \
             file://defconfig \
             file://rauc.cfg \
 "
