@@ -4,7 +4,7 @@ LIC_FILES_CHKSUM = "file://${COMMON_LICENSE_DIR}/MIT;md5=0835ade698e0bcf8506ecda
 
 inherit deploy bin_package
 
-DEPENDS = "rpi-bootfiles rpi-u-boot-scr"
+DEPENDS = "bcm2835-bootfiles rpi-u-boot-scr"
 PACKAGE_ARCH = "${MACHINE_ARCH}"
 
 INHIBIT_DEFAULT_DEPS = "1"
@@ -20,6 +20,8 @@ INHIBIT_SYSROOT_STRIP = "1"
 INHIBIT_PACKAGE_DEBUG_SPLIT = "1"
 
 FILES_${PN} = "/boot"
+
+BOOTFILES_DIR_NAME = "bcm2835-bootfiles"
 
 do_install () {
     install -d ${D}/boot

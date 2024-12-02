@@ -12,6 +12,9 @@ if [ $? -ne 0 ]; then
 fi
 
 # copy raspi boot stuff
+
+rm -f ${DSTDIR}/fixup4*.dat
+rm -f ${DSTDIR}/start4*.elf
 for f in $(ls ${SRCDIR}/*.elf ${SRCDIR}/*.dat)
 do
     f=$(basename ${f})
@@ -65,6 +68,7 @@ if [ $? -ne 0 ]; then
 fi
 
 # copy devicetrees
+rm -f ${DSTDIR}/*.dtb
 for f in $(ls ${SRCDIR}/*.dtb)
 do
     f=$(basename ${f})
@@ -76,6 +80,7 @@ do
 done
 
 # copy devicetree overlays
+rm -rf ${DSTDIR}/overlays/*.dtb*
 for f in $(ls ${SRCDIR}/*.dtbo)
 do
     f=$(basename ${f})
@@ -87,11 +92,11 @@ do
 done
 
 # copy overlay map
-cmp -s "${SRCDIR}/overlay_map.dtb" "${DSTDIR}/overlays/overlay_map.dtb" && echo "skip overlay_map.dtb" || cp "${SRCDIR}/overlay_map.dtb" "${DSTDIR}/overlays/overlay_map.dtb"
-if [ $? -ne 0 ]; then
-    echo Error copying overlay map
-    exit 2
-fi
+#cmp -s "${SRCDIR}/overlay_map.dtb" "${DSTDIR}/overlays/overlay_map.dtb" && echo "skip overlay_map.dtb" || cp "${SRCDIR}/overlay_map.dtb" "${DSTDIR}/overlays/overlay_map.dtb"
+#if [ $? -ne 0 ]; then
+#    echo Error copying overlay map
+#    exit 2
+#fi
 
 sync
 
