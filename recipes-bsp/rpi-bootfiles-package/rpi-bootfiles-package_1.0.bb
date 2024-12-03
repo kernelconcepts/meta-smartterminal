@@ -4,8 +4,13 @@ LIC_FILES_CHKSUM = "file://${COMMON_LICENSE_DIR}/MIT;md5=0835ade698e0bcf8506ecda
 
 inherit deploy bin_package
 
+FILESEXTRAPATHS_prepend := "${THISDIR}/files:"
+
 DEPENDS = "bcm2835-bootfiles rpi-u-boot-scr"
 PACKAGE_ARCH = "${MACHINE_ARCH}"
+
+SRC_URI += "file://uboot.env \
+"
 
 INHIBIT_DEFAULT_DEPS = "1"
 
@@ -25,6 +30,7 @@ BOOTFILES_DIR_NAME = "bcm2835-bootfiles"
 
 do_install () {
     install -d ${D}/boot
+    install -m644 ${WORKDIR}/uboot.env ${D}/boot/
     install -m755 ${DEPLOY_DIR_IMAGE}/${BOOTFILES_DIR_NAME}/*.bin ${D}/boot/
     install -m755 ${DEPLOY_DIR_IMAGE}/${BOOTFILES_DIR_NAME}/*.elf ${D}/boot/
     install -m644 ${DEPLOY_DIR_IMAGE}/${BOOTFILES_DIR_NAME}/*.dat ${D}/boot/
