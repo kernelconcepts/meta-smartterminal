@@ -29,6 +29,13 @@ if [ $? -ne 0 ]; then
 	exit 2
 fi
 
+# copy bootloader environment
+cmp -s ${SRCDIR}/uboot.env ${DSTDIR}/uboot.env && echo "skip copy uboot.env" || cp "${SRCDIR}/uboot.env" "${DSTDIR}/uboot.env"
+if [ $? -ne 0 ]; then
+        echo Error copying file uboot.env
+        exit 2
+fi
+
 # copy rauc boot selection script
 cmp -s ${SRCDIR}/boot_selection.scr ${DSTDIR}/boot_selection.scr && echo "skip copy boot_selection.scr" || cp "${SRCDIR}/boot_selection.scr" "${DSTDIR}/boot_selection.scr"
 if [ $? -ne 0 ]; then
