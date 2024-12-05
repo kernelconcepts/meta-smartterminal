@@ -39,6 +39,8 @@ RPI_USE_U_BOOT = "1"
 RPI_EXTRA_CONFIG = ' \n \
     avoid_safe_mode=1 \n \
     boot_delay=0 \n \
+    # switch off composite output \n \
+    enable_tvout=0 \n \
     # --- Software I2C --- \n \
     dtoverlay=vdo-terminal-4-i2c-gpio \n \
     \n \
