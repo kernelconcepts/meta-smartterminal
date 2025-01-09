@@ -19,5 +19,5 @@ INHIBIT_SYSROOT_STRIP = "1"
 INHIBIT_PACKAGE_DEBUG_SPLIT = "1"
 
 do_install() {
-    tar -C ${D}/ -xzf ${WORKDIR}/smartterminal-app_2.2.1.20.tar.gz --owner=root:0 --group=root:0
+    tar -C ${D}/ -xzf ${WORKDIR}/smartterminal-app_2.3.2.35.tar.gz --owner=root:0 --group=root:0
 }
