@@ -2,13 +2,12 @@ IMAGE_FEATURES += "debug-tweaks package-management splash hwcodecs x11-base "
 EXTRA_IMAGE_FEATURES ?= "tools-debug"
 
 inherit core-image
-#inherit distro_features_check
-#inherit qmake5_fixes
 
 TOOLCHAIN_TARGET_TASK:append = "qtbase-doc"
 TOOLCHAIN_HOST_TASK:append = "nativesdk-make"
 TOOLCHAIN_HOST_TASK:append = "nativesdk-qtscxml nativesdk-qtscxml-tools nativesdk-qtdeclarative-tools"
 
+BAD_RECOMMENDATIONS += "adwaita-icon-theme-symbolic"
 
 rootfs_add_files() {
   #
