@@ -1,12 +1,13 @@
 IMAGE_FEATURES += "debug-tweaks package-management splash hwcodecs x11-base "
 EXTRA_IMAGE_FEATURES ?= "tools-debug"
 
-inherit core-image distro_features_check
-inherit qmake5_fixes
+inherit core-image
+#inherit distro_features_check
+#inherit qmake5_fixes
 
-TOOLCHAIN_TARGET_TASK:append += "qtbase-doc"
-TOOLCHAIN_HOST_TASK:append += "nativesdk-make"
-TOOLCHAIN_HOST_TASK:append += "nativesdk-qtscxml nativesdk-qtscxml-tools nativesdk-qtdeclarative-tools"
+TOOLCHAIN_TARGET_TASK:append = "qtbase-doc"
+TOOLCHAIN_HOST_TASK:append = "nativesdk-make"
+TOOLCHAIN_HOST_TASK:append = "nativesdk-qtscxml nativesdk-qtscxml-tools nativesdk-qtdeclarative-tools"
 
 
 rootfs_add_files() {
@@ -47,8 +48,7 @@ ROOTFS_POSTPROCESS_COMMAND += "rootfs_add_files; "
 
 IMAGE_INSTALL:append = "\
 	bash \
-	catchsegv \
-	dhcp-client \
+	dhcpcd \
 	dosfstools \
 	e2fsprogs \
 	e2fsprogs-tune2fs \
@@ -60,11 +60,9 @@ IMAGE_INSTALL:append = "\
 	iw \
 	kmod \
 	lighttpd \
-	lighttpd-module-fastcgi \
 	lsof \
 	mmc-utils \
 	ntp \
-	ntpdate \
 	openssh \
 	openssh-sftp \
 	openssh-sftp-server \
@@ -109,6 +107,7 @@ IMAGE_INSTALL:append = "\
 	qtconnectivity \
 	"
 	
+
 IMAGE_INSTALL:append = "\
     u-boot \
     kernel-devicetree \
@@ -116,6 +115,6 @@ IMAGE_INSTALL:append = "\
     kernel-image \
     rpi-rauc-boot-selection-scr \
     "	
-    
+
 #    linux-raspberrypi
     
