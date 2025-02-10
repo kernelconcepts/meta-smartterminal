@@ -83,7 +83,8 @@ IMAGE_INSTALL:append = "\
 	util-linux-mkfs \
 	watchdog \
 	wpa-supplicant \
-	"
+	userland \
+"
 
 IMAGE_INSTALL:append = "\
 	libnfc \
