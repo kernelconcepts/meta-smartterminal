@@ -1,6 +1,6 @@
 SUMMARY = "Linux Kernel for VDO SmartTerminal, based on the Raspberry-PI 3B+"
 #
-FILESEXTRAPATHS_prepend := "${THISDIR}/${PN}:"
+FILESEXTRAPATHS:prepend := "${THISDIR}/${PN}:"
 DEPENDS += "lz4-native"
 
 COMPATIBLE_MACHINE_vdo-smartterminal = "(vdo-smartterminal)"
@@ -42,4 +42,4 @@ KERNEL_DEVICETREE += "overlays/vdo-terminal-4-i2c-gpio.dtbo \
 
 KERNEL_MODULE_AUTOLOAD += "i2c-dev rtc-ds1307"
 
-CMDLINE_append = " consoleblank=0  vt.global_cursor_default=0"
+CMDLINE:append = " consoleblank=0  vt.global_cursor_default=0"

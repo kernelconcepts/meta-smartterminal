@@ -7,6 +7,6 @@ inherit populate_sdk_qt5
 
 require vdo-image.inc
 
-IMAGE_INSTALL_append = "\
+IMAGE_INSTALL:append = "\
 	vdo-smartterminal-fw \
 "

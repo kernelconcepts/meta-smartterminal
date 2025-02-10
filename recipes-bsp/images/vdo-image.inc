@@ -4,9 +4,9 @@ EXTRA_IMAGE_FEATURES ?= "tools-debug"
 inherit core-image distro_features_check
 inherit qmake5_fixes
 
-TOOLCHAIN_TARGET_TASK_append += "qtbase-doc" 
-TOOLCHAIN_HOST_TASK_append += "nativesdk-make"
-TOOLCHAIN_HOST_TASK_append += "nativesdk-qtscxml nativesdk-qtscxml-tools nativesdk-qtdeclarative-tools"
+TOOLCHAIN_TARGET_TASK:append += "qtbase-doc"
+TOOLCHAIN_HOST_TASK:append += "nativesdk-make"
+TOOLCHAIN_HOST_TASK:append += "nativesdk-qtscxml nativesdk-qtscxml-tools nativesdk-qtdeclarative-tools"
 
 
 rootfs_add_files() {
@@ -45,7 +45,7 @@ rootfs_add_files() {
 
 ROOTFS_POSTPROCESS_COMMAND += "rootfs_add_files; "
 
-IMAGE_INSTALL_append = "\
+IMAGE_INSTALL:append = "\
 	bash \
 	catchsegv \
 	dhcp-client \
@@ -87,14 +87,14 @@ IMAGE_INSTALL_append = "\
 	wpa-supplicant \
 	"
 
-IMAGE_INSTALL_append = "\
+IMAGE_INSTALL:append = "\
 	libnfc \
 	libfreefare \
 	pcsc-lite \
 	pcsc-lite-lib \
 	"
 
-IMAGE_INSTALL_append = "\
+IMAGE_INSTALL:append = "\
 	qtquickcontrols \
 	qtbase-plugins \
 	qtimageformats \
@@ -109,7 +109,7 @@ IMAGE_INSTALL_append = "\
 	qtconnectivity \
 	"
 	
-IMAGE_INSTALL_append = "\
+IMAGE_INSTALL:append = "\
     u-boot \
     kernel-devicetree \
     kernel-modules \
