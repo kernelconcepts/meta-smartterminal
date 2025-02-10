@@ -4,7 +4,7 @@ inherit bundle
 
 require vdo-bundle-hooks.inc
 
-RAUC_BUNDLE_FORMAT = "plain"
+RAUC_BUNDLE_FORMAT = ""
 
 # If you change this keep RAUC system.conf in sync
 RAUC_BUNDLE_COMPATIBLE = "${MACHINE}"
