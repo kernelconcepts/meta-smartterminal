@@ -106,7 +106,6 @@ IMAGE_INSTALL:append = "\
 	qtgraphicaleffects \
 	qtscript \
 	qtserialport \
-	qtmultimedia \
 	qtconnectivity \
 	"
 	
@@ -118,6 +117,3 @@ IMAGE_INSTALL:append = "\
     kernel-image \
     rpi-rauc-boot-selection-scr \
     "	
-
-#    linux-raspberrypi
-    
