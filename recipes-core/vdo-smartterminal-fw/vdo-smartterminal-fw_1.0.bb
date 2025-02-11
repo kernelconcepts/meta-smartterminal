@@ -6,7 +6,7 @@ DEPENDS = "qtbase qtdeclarative qtquickcontrols qtquickcontrols2 pcsc-lite libnf
 # Add packages with all used external tools here
 RDEPENDS_${PN} += "gnupg coreutils qtgraphicaleffects-qmlplugins"
 
-inherit base bin_package
+inherit bin_package
 
 FILESEXTRAPATHS_prepend := "${THISDIR}/files:"
 
