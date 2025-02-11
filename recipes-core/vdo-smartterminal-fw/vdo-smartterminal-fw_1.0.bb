@@ -1,7 +1,7 @@
 SUMMARY = "VDO SmartTerminal main application"
 LICENSE = "CLOSED"
 
-DEPENDS = "qtbase qtdeclarative qtquickcontrols qtquickcontrols2 pcsc-lite libnfc libfreefare qtserialport qttools-native qfcgi mimetic"
+DEPENDS = "qtbase qtdeclarative qtquickcontrols qtquickcontrols2 pcsc-lite libnfc libfreefare qtserialport qttools-native qfcgi mimetic avahi"
 
 # Add packages with all used external tools here
 RDEPENDS:${PN} += "gnupg coreutils qtgraphicaleffects-qmlplugins"
