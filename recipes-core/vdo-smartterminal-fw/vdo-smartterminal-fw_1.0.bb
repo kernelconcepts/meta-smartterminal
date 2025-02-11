@@ -4,16 +4,16 @@ LICENSE = "CLOSED"
 DEPENDS = "qtbase qtdeclarative qtquickcontrols qtquickcontrols2 pcsc-lite libnfc libfreefare qtserialport qttools-native qfcgi mimetic"
 
 # Add packages with all used external tools here
-RDEPENDS_${PN} += "gnupg coreutils qtgraphicaleffects-qmlplugins"
+RDEPENDS:${PN} += "gnupg coreutils qtgraphicaleffects-qmlplugins"
 
 inherit bin_package
 
-FILESEXTRAPATHS_prepend := "${THISDIR}/files:"
+FILESEXTRAPATHS:prepend := "${THISDIR}/files:"
 
 SRC_URI = "file://smartterminal-app_2.2.1.20.tar.gz;unpack=0 \
 "
 
-INSANE_SKIP_${PN} = "ldflags"
+INSANE_SKIP:${PN} = "ldflags"
 INHIBIT_PACKAGE_STRIP = "1"
 INHIBIT_SYSROOT_STRIP = "1"
 INHIBIT_PACKAGE_DEBUG_SPLIT = "1"
