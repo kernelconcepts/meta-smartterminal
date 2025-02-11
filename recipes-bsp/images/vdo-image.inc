@@ -3,9 +3,9 @@ EXTRA_IMAGE_FEATURES ?= "tools-debug"
 
 inherit core-image
 
-TOOLCHAIN_TARGET_TASK:append = "qtbase-doc"
-TOOLCHAIN_HOST_TASK:append = "nativesdk-make"
-TOOLCHAIN_HOST_TASK:append = "nativesdk-qtscxml nativesdk-qtscxml-tools nativesdk-qtdeclarative-tools"
+TOOLCHAIN_TARGET_TASK:append = " qtbase-doc" 
+TOOLCHAIN_HOST_TASK:append   = " nativesdk-make"
+TOOLCHAIN_HOST_TASK:append   = " nativesdk-qtscxml nativesdk-qtscxml-tools nativesdk-qtdeclarative-tools"
 
 BAD_RECOMMENDATIONS += "adwaita-icon-theme-symbolic"
 
@@ -85,7 +85,7 @@ IMAGE_INSTALL:append = "\
 	watchdog \
 	wpa-supplicant \
 	userland \
-"
+	"
 
 IMAGE_INSTALL:append = "\
 	libnfc \
