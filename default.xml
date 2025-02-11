@@ -9,7 +9,7 @@
   <remote fetch="https://github.com" name="github"/>
   <remote fetch="https://github.com/kernelconcepts" name="kc-github"/>
   
-  <project remote="oe" revision="64c481d017c1b5b5eae619a367a5e8fa00f1b15" name="meta-openembedded" path="yocto/meta-openembedded"/><!-- "thud" -->
+  <project remote="oe" revision="64c481d017c1b5b5eae619a367a5e8fa00f1b156" name="meta-openembedded" path="yocto/meta-openembedded"/><!-- "thud" -->
   <project remote="yocto" revision="a39380d9c94a8c4e1b50c76390b08680ccd5eaaf" name="poky" path="yocto/poky"/><!-- "thud" -->
   <project remote="yocto" revision="1918a27419dcd5e79954c0dc0edddcde91057a7e" name="meta-raspberrypi" path="yocto/meta-raspberrypi"/><!-- "thud" -->
   <project remote="qt5" revision="eb828418264a49b8d00035cb3d7b12fcea3be801" name="meta-qt5" path="yocto/meta-qt5"/><!-- "thud" -->
