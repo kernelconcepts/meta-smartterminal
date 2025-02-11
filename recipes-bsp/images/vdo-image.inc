@@ -116,4 +116,5 @@ IMAGE_INSTALL:append = "\
     kernel-image \
     rpi-rauc-boot-selection-scr \
     rpi-config-package \
-    "	
+    rpi-bootfiles-package \
+    "
